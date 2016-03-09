@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="Scripts/angular.js"></script>
+
+    <script>
+        angular.module("App", [])
+
+    .config(['$httpProvider', function ($httpProvider) {
+
+        $httpProvider.interceptors.push(function ($q, $rootScope, $window) {
+
+            return {
+                request: function (config) {
+
+                    return config;
+                },
+                requestError: function (rejection) {
+
+                    return $q.reject(rejection);
+                },
+                response: function (response) {
+                    if (response.status == "401") {
+                     
+                        window.location.replace('/login');
+                    }
+                    //the same response/modified/or a new one need to be returned.
+                    return response;
+                },
+                responseError: function (rejection) {
+
+                    if (rejection.status == "401") {
+                        window.location.replace('/login');
+                    }
+                    return $q.reject(rejection);
+                }
+            };
+        });
+    }]).
+        controller("MainCtrl", MainCtrl);
+        ;
+
+        function MainCtrl($http,$scope) {
+           
+            $scope.f1 = function () {
+                $http.get("http://localhost:34341/api/default").then(function (data) {
+                    $scope.data = data;
+                });
+
+            }
+            $scope.f2 = function () {
+                $http.get("http://localhost:34341/api/default2").then(function (data) {
+                    $scope.data = data;
+                });
+ 
+            }
+
+        }
+    </script>
+</head>
+<body ng-app="App" ng-controller="MainCtrl">
+     {{"Selam"}}
+
+    {{data}}
+
+   <button ng-click="f1()">
+       Anonim Fonksiyon
+   </button>
+    <button ng-click="f2()">
+        Yetkili Fonsiyon
+    </button>
+
+
+
+</body>
+</html>

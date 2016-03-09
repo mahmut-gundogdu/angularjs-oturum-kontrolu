@@ -1,0 +1,6 @@
+c:\users\mg\documents\visual studio 2013\Projects\AngularAuth\Angularjs\bin\Angularjs.dll.config
+c:\users\mg\documents\visual studio 2013\Projects\AngularAuth\Angularjs\bin\Angularjs.dll
+c:\users\mg\documents\visual studio 2013\Projects\AngularAuth\Angularjs\bin\Angularjs.pdb
+c:\users\mg\documents\visual studio 2013\Projects\AngularAuth\Angularjs\obj\Debug\Angularjs.dll
+c:\users\mg\documents\visual studio 2013\Projects\AngularAuth\Angularjs\obj\Debug\Angularjs.pdb
+c:\users\mg\documents\visual studio 2013\Projects\AngularAuth\Angularjs\obj\Debug\Angularjs.csprojResolveAssemblyReference.cache
